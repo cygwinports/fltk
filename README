@@ -10,19 +10,19 @@ but works fine as a shared library. FLTK also includes an excellent UI
 builder called FLUID that can be used to create applications in minutes.
 
 Runtime requirements:
-  cygwin-1.5.25-7
-  libGL1-7.0.2-1
+  cygwin-1.5.25-15
+  libGL1-7.0.3-1
   libX11_6-1.1.3-1
   libXft2-2.1.12-1
-  libfontconfig1-2.3.2-2
+  libfontconfig1-2.6.0-1
   libjpeg62-6b-12
-  libpng12-1.2.24-1
+  libpng12-1.2.29-1
 
 Build requirements:
 (besides corresponding -devel packages)
   autoconf2.5-2.61-1
-  binutils-20060817-1
-  cygport-0.3.8-1
+  binutils-20080523-1
+  cygport-0.3.11-1
   gawk-3.1.6-1
   gcc-core-3.4.4-3
   gcc-g++-3.4.4-3
@@ -33,23 +33,23 @@ Canonical website:
   http://www.fltk.org/
 
 Canonical download:
-  
+  http://ftp.easysw.com/pub/fltk/
 
 -------------------------------------------
 
 Build instructions:
-  unpack fltk-1.1.8-X-src.tar.bz2
+  unpack fltk-1.1.9-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./fltk-1.1.8-X.cygport all
+  cygport ./fltk-1.1.9-X.cygport all
 
 This will create:
-  /usr/src/fltk-1.1.8-X-src.tar.bz2
-  /usr/src/fltk-1.1.8-X.tar.bz2
-  /usr/src/fltk-doc-1.1.8-X.tar.bz2
-  /usr/src/libfltk-devel-1.1.8-X.tar.bz2
-  /usr/src/libfltk11-1.1.8-X.tar.bz2
+  /usr/src/fltk-1.1.9-X-src.tar.bz2
+  /usr/src/fltk-1.1.9-X.tar.bz2
+  /usr/src/fltk-doc-1.1.9-X.tar.bz2
+  /usr/src/libfltk-devel-1.1.9-X.tar.bz2
+  /usr/src/libfltk11-1.1.9-X.tar.bz2
 
 -------------------------------------------
 
@@ -57,10 +57,10 @@ Files included in the binary packages:
 
 (fltk)
   /usr/bin/fluid.exe
-  /usr/share/doc/fltk-1.1.8/COPYING
-  /usr/share/doc/fltk-1.1.8/CREDITS
-  /usr/share/doc/fltk-1.1.8/Changes
-  /usr/share/doc/fltk-1.1.8/README
+  /usr/share/doc/fltk-1.1.9/COPYING
+  /usr/share/doc/fltk-1.1.9/CREDITS
+  /usr/share/doc/fltk-1.1.9/Changes
+  /usr/share/doc/fltk-1.1.9/README
   /usr/share/man/man1/fluid.1.gz
 
 (libfltk11)
@@ -516,6 +516,9 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 1.1.9-1 -----
+Version bump.
 
 ----- version 1.1.8-1 -----
 Version bump, built for X11.
