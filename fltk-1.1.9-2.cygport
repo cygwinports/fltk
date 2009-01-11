@@ -1,0 +1,39 @@
+DESCRIPTION="Fast Light Toolkit (X11 build)"
+HOMEPAGE="http://www.fltk.org/"
+SRC_URI="http://ftp.easysw.com/pub/${PN}/${PV}/${P}-source.tar.bz2"
+PATCH_URI="
+	mirror://portage/x11-libs/${PN}/files/${P}-desktop.patch
+	mirror://portage/x11-libs/${PN}/files/${P}-conf-tests.patch
+	1.1.9-not-windows.patch
+"
+
+PKG_NAMES="${PN} fluid libfltk1.1 lib${PN}-devel"
+fluid_CONTENTS="etc/ usr/bin/fluid.exe usr/share/applications/ usr/share/icons/
+                usr/share/doc/${PN}/ usr/share/man/man1/fluid.* usr/share/mimelnk/"
+libfltk1_1_CONTENTS="usr/bin/*-1.1.dll usr/share/doc/Cygwin/ usr/share/doc/${P}/"
+libfltk_devel_CONTENTS="usr/bin/${PN}-config usr/include/ usr/lib/
+                        usr/share/man/man1/${PN}-config.* usr/share/man/man3/"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	autoconf
+
+	# bug #19894
+	export C_INCLUDE_PATH="${C_INCLUDE_PATH}:/usr/include/freetype2"
+	export CPLUS_INCLUDE_PATH="${CPLUS_INCLUDE_PATH}:/usr/include/freetype2"
+
+	cygconf \
+		--enable-shared \
+		--enable-threads \
+		--enable-xft LIBS="-lfontconfig" \
+		--without-links
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+	cyginstall -C documentation
+	cygmake -C fluid install-linux DESTDIR=${D}
+}

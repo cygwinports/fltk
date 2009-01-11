@@ -1,6 +1,5 @@
 category: X11
-requires: cygwin libX11_6 libfltk11 libpng12
-sdesc: "Fast Light Toolkit (UI designer)"
+sdesc: "Fast Light Toolkit (sources)"
 ldesc: "FLTK (pronounced 'fulltick') is a cross-platform C++ GUI toolkit 
 for UNIX/Linux (X11), Microsoft Windows, and MacOS X. FLTK provides 
 modern GUI functionality without the bloat and supports 3D graphics via 
