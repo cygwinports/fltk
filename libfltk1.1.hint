@@ -1,5 +1,5 @@
 category: X11
-requires: cygwin libGL1 libX11_6 libXft2 libfontconfig1 libgcc1 libjpeg62 libpng12 libstdc++6
+requires: libGL1 libX11_6 libXft2 libfontconfig1 libgcc1 libjpeg62 libpng12 libstdc++6
 external-source: fltk
 sdesc: "Fast Light Toolkit (runtime)"
 ldesc: "FLTK (pronounced 'fulltick') is a cross-platform C++ GUI toolkit 
