@@ -15,9 +15,10 @@ libfltk_devel_CONTENTS="usr/bin/${PN}-config usr/include/ usr/lib/
                         usr/share/man/man1/${PN}-config.* usr/share/man/man3/"
 
 src_compile() {
+	cd ${S}
+	autoconf
 	lndirs
 	cd ${B}
-	autoconf
 
 	# bug #19894
 	export C_INCLUDE_PATH="${C_INCLUDE_PATH}:/usr/include/freetype2"
