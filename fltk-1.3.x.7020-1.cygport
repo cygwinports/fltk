@@ -1,0 +1,43 @@
+DESCRIPTION="Fast Light Toolkit version 1.3 (X11 build)"
+HOMEPAGE="http://www.fltk.org/"
+SRC_URI="http://ftp.easysw.com/pub/fltk/snapshots/fltk-1.3.x-r${PV[4]}.tar.bz2"
+__PATCH_URI="
+	r6403-configure-cygwin.patch
+	r6525-no-undefined.patch
+	r6525-std-includes.patch
+	r6525-libs-xft-no-cairo.patch
+"
+
+SRC_DIR="fltk-1.3.x-r${PV[4]}"
+
+PKG_NAMES="${PN} fluid libfltk1.3 libfltk-devel"
+fluid_CONTENTS="usr/bin/fluid2.exe usr/share/man/man1/fluid2.*"
+libfltk1_3_CONTENTS="usr/bin/*-1.3.dll usr/share/doc/"
+libfltk_devel_CONTENTS="usr/bin/*-config usr/include/ usr/lib/
+                        usr/share/man/man1/*-config.*"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	autoconf --force || error "autoconf failed"
+
+	cygconf \
+		--enable-cygwin --enable-x11 \
+		--enable-gl \
+		--enable-shared \
+		--enable-threads \
+		--enable-xft \
+		--enable-xinerama \
+		--enable-xshm
+
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	dobin src/*.dll
+	dolib src/*.a
+}
+DOCS="README_fltk1_to_fltk2.txt"
