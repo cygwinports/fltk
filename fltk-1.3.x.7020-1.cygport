@@ -11,7 +11,7 @@ __PATCH_URI="
 SRC_DIR="fltk-1.3.x-r${PV[4]}"
 
 PKG_NAMES="${PN} fluid libfltk1.3 libfltk-devel"
-fluid_CONTENTS="usr/bin/fluid2.exe usr/share/man/man1/fluid2.*"
+fluid_CONTENTS="usr/bin/fluid.exe usr/share/man/man1/fluid.*"
 libfltk1_3_CONTENTS="usr/bin/*-1.3.dll usr/share/doc/"
 libfltk_devel_CONTENTS="usr/bin/*-config usr/include/ usr/lib/
                         usr/share/man/man1/*-config.*"
