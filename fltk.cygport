@@ -1,0 +1,48 @@
+NAME="fltk"
+VERSION=1.3.x.7020
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="Fast Light Toolkit"
+DESCRIPTION="FLTK (pronounced 'fulltick') is a cross-platform C++ GUI toolkit
+for UNIX/Linux (X11), Microsoft Windows, and MacOS X. FLTK provides modern GUI
+functionality without the bloat and supports 3D graphics via OpenGL and its
+built-in GLUT emulation.
+
+FLTK is designed to be small and modular enough to be statically linked,
+but works fine as a shared library. FLTK also includes an excellent UI
+builder called FLUID that can be used to create applications in minutes."
+HOMEPAGE="http://www.fltk.org/"
+SRC_URI="http://ftp.easysw.com/pub/fltk/snapshots/fltk-1.3.x-r${VERSION##*.}.tar.bz2"
+SRC_DIR="fltk-1.3.x-r${VERSION##*.}"
+
+PKG_NAMES="fluid libfltk1.3 libfltk-devel"
+fluid_CONTENTS="usr/bin/fluid.exe usr/share/man/man1/fluid.*"
+libfltk1_3_CONTENTS="usr/bin/*-1.3.dll usr/share/doc/"
+libfltk_devel_CONTENTS="usr/bin/*-config usr/include/ usr/lib/
+                        usr/share/man/man1/*-config.*"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	autoconf --force || error "autoconf failed"
+
+	cygconf \
+		--enable-cygwin --enable-x11 \
+		--enable-gl \
+		--enable-shared \
+		--enable-threads \
+		--enable-xft \
+		--enable-xinerama \
+		--enable-xshm
+
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	dobin src/*.dll
+	dolib src/*.a
+}
+DOCS="README_fltk1_to_fltk2.txt"
