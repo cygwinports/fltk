@@ -1,5 +1,5 @@
 NAME="fltk"
-VERSION=1.3.x.7020
+VERSION=1.3.2.9965
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Fast Light Toolkit"
@@ -12,7 +12,7 @@ FLTK is designed to be small and modular enough to be statically linked,
 but works fine as a shared library. FLTK also includes an excellent UI
 builder called FLUID that can be used to create applications in minutes."
 HOMEPAGE="http://www.fltk.org/"
-SRC_URI="http://ftp.easysw.com/pub/fltk/snapshots/fltk-1.3.x-r${VERSION##*.}.tar.bz2"
+SRC_URI="http://fltk.org/pub/fltk/snapshots/fltk-1.3.x-r${VERSION##*.}.tar.bz2"
 SRC_DIR="fltk-1.3.x-r${VERSION##*.}"
 
 PKG_NAMES="fluid libfltk1.3 libfltk-devel"
